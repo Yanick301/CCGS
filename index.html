@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFCGEB - Accueil</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            scroll-behavior: smooth;
+            margin: 0;
+        }
+        /* HEADER */
+        header {
+            background: linear-gradient(rgba(0,0,50,0.7), rgba(0,0,50,0.7)), url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a') center/cover no-repeat;
+            color: white;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+        header img {
+            max-width: 150px;
+            animation: fadeInDown 1.5s ease;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            animation: fadeInUp 1.5s ease;
+        }
+        header p {
+            font-size: 1.2rem;
+            animation: fadeInUp 2s ease;
+        }
+        /* MENU ICON */
+        .menu-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 2000;
+        }
+        /* SIDE MENU */
+        .side-menu {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            top: 0;
+            right: 0;
+            background-color: #0d1b2a;
+            overflow-x: hidden;
+            transition: 0.4s;
+            padding-top: 60px;
+            z-index: 1999;
+        }
+        .side-menu a {
+            padding: 12px 24px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+        .side-menu a:hover {
+            background-color: #f39c12;
+        }
+        .side-menu .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            font-size: 2rem;
+        }
+        /* SERVICE CARDS */
+        .service-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+        footer {
+            background: #0d1b2a;
+            color: white;
+            padding: 20px 0;
+        }
+        /* ANIMATIONS */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SIDE MENU -->
+    <div id="sideMenu" class="side-menu">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeMenu()">&times;</a>
+        <a href="index.html"><i class="fa-solid fa-house"></i> Accueil</a>
+        <a href="services.html"><i class="fa-solid fa-briefcase"></i> Services</a>
+        <a href="apropos.html"><i class="fa-solid fa-info-circle"></i> À propos</a>
+        <a href="faq.html"><i class="fa-solid fa-question-circle"></i> FAQ</a>
+        <a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a>
+    </div>
+
+    <!-- HEADER -->
+    <header>
+        <div class="menu-icon" onclick="openMenu()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        <div class="container">
+            <img src="cfcgeb.png" alt="Logo CFCGEB">
+            <h1 class="mt-3">Votre fiscalité, Notre expertise</h1>
+            <p>Spécialiste en gestion et accompagnement des PME au Bénin</p>
+            <a href="services.html" class="btn btn-warning btn-lg mt-3">Découvrir nos services</a>
+        </div>
+    </header>
+
+    <!-- SERVICES APERÇU -->
+    <section id="services" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Aperçu de nos Services</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card service-card text-center p-4">
+                        <i class="fa-solid fa-building fa-3x text-warning mb-3"></i>
+                        <h5>Création & Immatriculation</h5>
+                        <p>Accompagnement complet pour créer et immatriculer votre entreprise.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card service-card text-center p-4">
+                        <i class="fa-solid fa-calculator fa-3x text-warning mb-3"></i>
+                        <h5>Comptabilité</h5>
+                        <p>Tenue, suivi et gestion complète de votre comptabilité.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card service-card text-center p-4">
+                        <i class="fa-solid fa-file-invoice-dollar fa-3x text-warning mb-3"></i>
+                        <h5>Conseil Fiscal</h5>
+                        <p>Optimisation et accompagnement personnalisé en fiscalité.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="services.html" class="btn btn-outline-dark">Voir tous les services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+      <footer class="text-center">
+        <p>&copy; 2025 CCGS - Tous droits réservés</p>
+    </footer>
+
+
+    <!-- SCRIPT MENU -->
+    <script>
+        function openMenu() {
+            document.getElementById("sideMenu").style.width = "250px";
+        }
+        function closeMenu() {
+            document.getElementById("sideMenu").style.width = "0";
+        }
+    </script>
+
+</body>
+</html>
