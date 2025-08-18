@@ -436,5 +436,136 @@
   </section>
 
   <!-- RENDEZ-VOUS -->
-   
+   <section class="py-5" id="rdv">
+    <div class="container">
+      <div class="cta-strip mb-4 d-flex flex-column flex-md-row align-items-md-center justify-content-between">
+        <div class="mb-3 mb-md-0">
+          <h4 class="mb-1">Besoin d’un diagnostic gratuit ?</h4>
+          <p class="mb-0">Parlez-nous de votre projet, on vous répond sous 24h ouvrées.</p>
+        </div>
+        <a href="#rdv-form" class="btn btn-warning btn-lg"><i class="fa-solid fa-calendar-plus me-2"></i>Je prends rendez-vous</a>
+      </div>
+
+      <div class="row g-4" id="rdv-form">
+        <div class="col-lg-7">
+          <div class="service-card">
+            <h5 class="mb-3"><i class="fa-solid fa-envelope-open-text me-2"></i>Formulaire de contact</h5>
+            <form>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label">Nom complet</label>
+                  <input type="text" class="form-control" placeholder="Votre nom" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">E-mail</label>
+                  <input type="email" class="form-control" placeholder="vous@exemple.com" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Téléphone</label>
+                  <input type="tel" class="form-control" placeholder="+229 ..." required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Sujet</label>
+                  <select class="form-select" required>
+                    <option value="">Choisir…</option>
+                    <option>Création d’entreprise</option>
+                    <option>Comptabilité</option>
+                    <option>Conseil fiscal</option>
+                    <option>Paie & Social</option>
+                    <option>Audit</option>
+                    <option>Autre</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label class="form-label">Message</label>
+                  <textarea class="form-control" rows="4" placeholder="Décrivez votre besoin…"></textarea>
+                </div>
+                <div class="col-12 d-grid">
+                  <button type="submit" class="btn btn-warning btn-lg">Envoyer ma demande</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="service-card h-100">
+            <h5 class="mb-3"><i class="fa-solid fa-map-location-dot me-2"></i>Nos coordonnées</h5>
+            <p class="mb-1"><i class="fa-solid fa-location-dot me-2"></i>Porto-Novo, Bénin</p>
+            <p class="mb-1"><i class="fa-solid fa-phone me-2"></i>+229 0121353875    +229 0196838364</p>
+            <p class="mb-3"><i class="fa-solid fa-envelope me-2"></i>ccgs@gmail.com</p>
+            <div class="d-flex gap-3">
+              <a href="#" class="text-dark"><i class="fab fa-facebook fa-xl"></i></a>
+              <a href="#" class="text-dark"><i class="fab fa-instagram fa-xl"></i></a>
+              <a href="#" class="text-dark"><i class="fab fa-whatsapp fa-xl"></i></a>
+              <a href="#" class="text-dark"><i class="fab fa-linkedin fa-xl"></i></a>
+            </div>
+            <hr>
+            <p class="mb-2"><strong>Horaires</strong></p>
+            <p class="mb-0">Lun–Ven : 8h30–18h00 • </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="pt-5 pb-4">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <h5 class="mb-3">CCGS</h5>
+          <p>Cabinet Comptable & Fiscal au service des PME, startups et organisations au Bénin.</p>
+          <div class="d-flex gap-3">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <h6 class="mb-3">Plan du site</h6>
+          <ul class="list-unstyled">
+            <li><a href="index.html"><i class="fa-solid fa-angle-right me-2"></i>Accueil</a></li>
+            <li><a href="services.html"><i class="fa-solid fa-angle-right me-2"></i>Services</a></li>
+            <li><a href="apropos.html"><i class="fa-solid fa-angle-right me-2"></i>À propos</a></li>
+            <li><a href="faq.html"><i class="fa-solid fa-angle-right me-2"></i>FAQ</a></li>
+            <li><a href="contact.html"><i class="fa-solid fa-angle-right me-2"></i>Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h6 class="mb-3">Contact</h6>
+          <p class="mb-1"><i class="fa-solid fa-location-dot me-2"></i>Cotonou, Bénin</p>
+          <p class="mb-1"><i class="fa-solid fa-phone me-2"></i>+229 0121353875  +229 0196838364</p>
+          <p class="mb-0"><i class="fa-solid fa-envelope me-2"></i>ccgs@gmail.com</p>
+        </div>
+      </div>
+      <hr class="my-4 text-secondary">
+      <div class="text-center small">&copy; 2025 CCGS — Tous droits réservés.</div>
+    </div>
+  </footer>
+
+  <!-- MENU + COUNT SCRIPT -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function openMenu(){document.getElementById("sideMenu").style.width="260px"}
+    function closeMenu(){document.getElementById("sideMenu").style.width="0"}
+
+    // Compteurs animés quand visibles
+    const counters = document.querySelectorAll('[data-count]');
+    const io = new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          const el = entry.target;
+          const target = +el.getAttribute('data-count');
+          let n=0, step = Math.ceil(target/60);
+          const tick = ()=>{ n += step; if(n>target) n=target; el.textContent = n.toLocaleString('fr-FR'); if(n<target) requestAnimationFrame(tick); };
+          tick();
+          io.unobserve(el);
+        }
+      });
+    }, {threshold:.4});
+    counters.forEach(c=>io.observe(c));
+  </script>
+</body>
+</html>
   
