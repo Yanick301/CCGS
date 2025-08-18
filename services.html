@@ -10,6 +10,22 @@
     body {
       font-family: 'Segoe UI', sans-serif;
     }
+
+    /* NAVBAR */
+    .navbar {
+      background: #0d1b2a;
+    }
+    .navbar .nav-link {
+      color: white !important;
+      font-weight: 500;
+    }
+    .navbar .nav-link:hover {
+      color: #f39c12 !important;
+    }
+    .navbar-brand img {
+      height: 45px;
+    }
+
     /* HERO */
     header {
       background: linear-gradient(rgba(0,0,50,0.7), rgba(0,0,50,0.7)), 
@@ -105,6 +121,27 @@
   </style>
 </head>
 <body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="cfcgeb.png" alt="CCGS Logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+          <li class="nav-item"><a class="nav-link" href="apropos.html">À propos</a></li>
+          <li class="nav-item"><a class="nav-link active" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="formations.html">Formations</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
   <!-- HERO -->
   <header>
