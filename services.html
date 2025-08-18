@@ -10,68 +10,43 @@
     body {
       font-family: 'Segoe UI', sans-serif;
     }
-    /* HEADER */
+    /* HERO */
     header {
       background: linear-gradient(rgba(0,0,50,0.7), rgba(0,0,50,0.7)), 
-                  url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40') center/cover no-repeat;
+        url('https://images.unsplash.com/photo-1556742400-b5b7c512d1b2') center/cover no-repeat;
       color: white;
-      padding: 80px 0;
+      padding: 120px 0;
       text-align: center;
-      position: relative;
     }
     header h1 {
-      font-size: 2.8rem;
+      font-size: 3.5rem;
       font-weight: bold;
-      animation: fadeInDown 1.5s ease;
     }
     header p {
-      font-size: 1.2rem;
-      animation: fadeInUp 1.5s ease;
+      font-size: 1.3rem;
+      max-width: 700px;
+      margin: 10px auto;
     }
-    /* MENU ICON */
-    .menu-icon {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 2rem;
-      cursor: pointer;
-      z-index: 2000;
-    }
-    /* SIDE MENU */
-    .side-menu {
-      height: 100%;
-      width: 0;
-      position: fixed;
-      top: 0;
-      right: 0;
-      background-color: #0d1b2a;
-      overflow-x: hidden;
-      transition: 0.4s;
-      padding-top: 60px;
-      z-index: 1999;
-    }
-    .side-menu a {
-      padding: 12px 24px;
-      text-decoration: none;
-      font-size: 1.2rem;
+    .btn-cta {
+      margin-top: 20px;
+      padding: 12px 30px;
+      border-radius: 30px;
+      background: #f39c12;
       color: white;
-      display: block;
+      font-weight: bold;
       transition: 0.3s;
+      text-decoration: none;
     }
-    .side-menu a:hover {
-      background-color: #f39c12;
+    .btn-cta:hover {
+      background: #d35400;
+      color: white;
     }
-    .side-menu .close-btn {
-      position: absolute;
-      top: 15px;
-      right: 25px;
-      font-size: 2rem;
-    }
-    /* SERVICE CARDS */
+
+    /* CARDS */
     .service-card {
       background: white;
-      border-radius: 10px;
-      padding: 25px;
+      border-radius: 15px;
+      padding: 30px 25px;
       text-align: center;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
       transition: all 0.3s ease;
@@ -79,175 +54,303 @@
     }
     .service-card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
     }
     .service-card i {
       font-size: 3rem;
       color: #f39c12;
       margin-bottom: 15px;
     }
+
+    /* TIMELINE */
+    .timeline {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: #f39c12;
+      z-index: -1;
+    }
+    .timeline-step {
+      text-align: center;
+      width: 23%;
+    }
+    .timeline-step i {
+      font-size: 2.5rem;
+      color: #f39c12;
+      margin-bottom: 10px;
+    }
+
+    /* TESTIMONIALS */
+    .testimonial {
+      max-width: 700px;
+      margin: auto;
+    }
+    .stars {
+      color: #f39c12;
+    }
+
     footer {
       background: #0d1b2a;
       color: white;
-      padding: 30px 0;
-    }
-    footer a {
-      color: #f39c12;
-      text-decoration: none;
-    }
-    footer a:hover {
-      text-decoration: underline;
-    }
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-40px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
+      padding: 20px 0;
     }
   </style>
 </head>
 <body>
 
-  <!-- SIDE MENU -->
-  <div id="sideMenu" class="side-menu">
-    <a href="javascript:void(0)" class="close-btn" onclick="closeMenu()">&times;</a>
-    <a href="index.html"><i class="fa-solid fa-house"></i> Accueil</a>
-    <a href="services.html"><i class="fa-solid fa-briefcase"></i> Services</a>
-    <a href="apropos.html"><i class="fa-solid fa-info-circle"></i> À propos</a>
-    <a href="faq.html"><i class="fa-solid fa-question-circle"></i> FAQ</a>
-    <a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a>
-  </div>
-
-  <!-- HEADER -->
+  <!-- HERO -->
   <header>
-    <div class="menu-icon" onclick="openMenu()">
-      <i class="fa-solid fa-bars"></i>
-    </div>
     <div class="container">
       <h1>Nos Services</h1>
-      <p>Accompagnement complet en comptabilité, fiscalité et gestion d’entreprise</p>
+      <p>Découvrez l’expertise de <strong>CCGS</strong>, votre partenaire en fiscalité, comptabilité et gestion d’entreprise</p>
+      <a href="contact.html" class="btn-cta">Demander un devis gratuit</a>
     </div>
   </header>
 
-  <!-- SERVICES PRINCIPAUX -->
+  <!-- INTRO -->
   <section class="py-5">
     <div class="container">
-      <h2 class="text-center mb-5">Nos Domaines d’Expertise</h2>
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <h2>Un accompagnement à 360°</h2>
+          <p>
+            Chez <strong>CCGS</strong>, nous allons au-delà de la simple comptabilité. 
+            Nous vous aidons à <em>créer, développer et sécuriser</em> votre entreprise grâce à une offre complète, 
+            pensée pour les entrepreneurs et dirigeants exigeants.
+          </p>
+          <ul>
+            <li> Suivi personnalisé et humain</li>
+            <li> Respect des normes fiscales</li>
+            <li> Conseils stratégiques adaptés</li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837" class="img-fluid rounded shadow" alt="Services">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES GRID -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center mb-5">Nos domaines d’expertise</h2>
       <div class="row g-4">
         <div class="col-md-4">
           <div class="service-card">
             <i class="fa-solid fa-building"></i>
-            <h5>Création et immatriculation</h5>
-            <p>Assistance complète dans vos démarches administratives pour lancer et immatriculer votre entreprise.</p>
+            <h5>Création d’entreprise</h5>
+            <p>Immatriculation, statuts juridiques et accompagnement au lancement.</p>
+            <ul class="text-start">
+              <li> Choix de la forme juridique</li>
+              <li> Rédaction de statuts</li>
+              <li> Démarches administratives</li>
+            </ul>
           </div>
         </div>
         <div class="col-md-4">
           <div class="service-card">
             <i class="fa-solid fa-calculator"></i>
-            <h5>Tenue et suivi comptable</h5>
-            <p>Gestion rigoureuse de votre comptabilité, du suivi quotidien jusqu’aux rapports financiers.</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="service-card">
-            <i class="fa-solid fa-file-invoice"></i>
-            <h5>États financiers annuels</h5>
-            <p>Production d’états financiers fiables pour vos obligations légales et besoins stratégiques.</p>
+            <h5>Comptabilité</h5>
+            <p>Tenue comptable complète et pilotage financier adapté à votre secteur.</p>
+            <ul class="text-start">
+              <li> Comptabilité générale</li>
+              <li> Déclarations fiscales</li>
+              <li> Bilan & comptes annuels</li>
+            </ul>
           </div>
         </div>
         <div class="col-md-4">
           <div class="service-card">
             <i class="fa-solid fa-hand-holding-dollar"></i>
             <h5>Conseil fiscal</h5>
-            <p>Optimisation fiscale et accompagnement stratégique pour réduire vos charges et maximiser vos gains.</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="service-card">
-            <i class="fa-solid fa-magnifying-glass-chart"></i>
-            <h5>Audit et diagnostic</h5>
-            <p>Analyse complète de vos finances et recommandations concrètes pour améliorer la performance.</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="service-card">
-            <i class="fa-solid fa-business-time"></i>
-            <h5>Plans d’affaires</h5>
-            <p>Élaboration de business plans et prévisionnels adaptés à vos projets de développement.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- AUTRES SERVICES -->
-  <section class="py-5 bg-light">
-    <div class="container">
-      <h2 class="text-center mb-5">Autres Services</h2>
-      <div class="row g-4">
-        <div class="col-md-4">
-          <div class="service-card">
-            <i class="fa-solid fa-book"></i>
-            <h5>Manuels de procédures</h5>
-            <p>Rédaction de manuels adaptés pour organiser et fluidifier vos processus internes.</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="service-card">
-            <i class="fa-solid fa-chalkboard-user"></i>
-            <h5>Formations professionnelles</h5>
-            <p>Formations pratiques sur la comptabilité, la fiscalité et l’utilisation des logiciels de gestion.</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="service-card">
-            <i class="fa-solid fa-file-signature"></i>
-            <h5>Déclarations fiscales</h5>
-            <p>Prise en charge de vos déclarations fiscales et sociales pour assurer votre conformité.</p>
+            <p>Optimisation et anticipation pour réduire vos charges et éviter les risques.</p>
+            <ul class="text-start">
+              <li> Études fiscales personnalisées</li>
+              <li> Stratégies d’optimisation</li>
+              <li> Assistance en cas de contrôle</li>
+            </ul>
           </div>
         </div>
         <div class="col-md-4">
           <div class="service-card">
             <i class="fa-solid fa-users-gear"></i>
             <h5>Gestion de la paie</h5>
-            <p>Service complet de gestion des salaires, cotisations et bulletins de paie pour votre personnel.</p>
+            <p>Externalisation sécurisée et efficace des bulletins de paie et charges sociales.</p>
+            <ul class="text-start">
+              <li> Établissement des salaires</li>
+              <li> Déclarations sociales</li>
+              <li> Suivi RH</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="service-card">
+            <i class="fa-solid fa-file-invoice"></i>
+            <h5>Rapports financiers</h5>
+            <p>Des états financiers clairs pour piloter vos décisions stratégiques.</p>
+            <ul class="text-start">
+              <li> États financiers conformes</li>
+              <li> Tableaux de bord</li>
+              <li> Analyse de performance</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="service-card">
+            <i class="fa-solid fa-magnifying-glass-chart"></i>
+            <h5>Audit & diagnostic</h5>
+            <p>Évaluer et améliorer la santé financière et organisationnelle.</p>
+            <ul class="text-start">
+              <li> Audit interne</li>
+              <li> Recommandations stratégiques</li>
+              <li> Plan d’action sur mesure</li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- APPEL À L’ACTION -->
-  <section class="py-5 text-center" style="background:#f39c12; color:white;">
+  <!-- TIMELINE PROCESS -->
+  <section class="py-5">
     <div class="container">
-      <h2>Prêt à faire passer votre entreprise au niveau supérieur ?</h2>
-      <p class="mb-4">Contactez nos experts et bénéficiez d’un accompagnement adapté à vos besoins.</p>
-      <a href="contact.html" class="btn btn-dark btn-lg">Demander une consultation</a>
+      <h2 class="text-center mb-5">Notre méthode en 4 étapes</h2>
+      <div class="timeline">
+        <div class="timeline-step">
+          <i class="fa-solid fa-comments"></i>
+          <h6>Consultation</h6>
+          <p>Nous écoutons vos besoins</p>
+        </div>
+        <div class="timeline-step">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <h6>Diagnostic</h6>
+          <p>Analyse complète de votre situation</p>
+        </div>
+        <div class="timeline-step">
+          <i class="fa-solid fa-gears"></i>
+          <h6>Action</h6>
+          <p>Déploiement de solutions concrètes</p>
+        </div>
+        <div class="timeline-step">
+          <i class="fa-solid fa-chart-line"></i>
+          <h6>Suivi</h6>
+          <p>Accompagnement continu</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center mb-5">Ce que disent nos clients</h2>
+      <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner text-center">
+          <div class="carousel-item active testimonial">
+            <p>"CCGS nous a permis de mettre de l’ordre dans nos finances. Une équipe réactive et compétente."</p>
+            <div class="stars">★★★★★</div>
+            <h6>- PME Alpha</h6>
+          </div>
+          <div class="carousel-item testimonial">
+            <p>"Grâce à leur accompagnement, nous avons pu franchir un cap important dans notre croissance."</p>
+            <div class="stars">★★★★★</div>
+            <h6>- Startup Beta</h6>
+          </div>
+          <div class="carousel-item testimonial">
+            <p>"Des conseils stratégiques qui font vraiment la différence au quotidien."</p>
+            <div class="stars">★★★★☆</div>
+            <h6>- Société Gamma</h6>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section py-5">
+    <div class="container">
+      <h2 class="text-center mb-5">FAQ - Questions fréquentes</h2>
+      <div class="accordion" id="faqAccordion">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#q1">
+              Quels types d’entreprises accompagnez-vous ?
+            </button>
+          </h2>
+          <div id="q1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Nous accompagnons des indépendants, startups, PME et grandes entreprises, dans tous les secteurs d’activité.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">
+              Proposez-vous un accompagnement personnalisé ?
+            </button>
+          </h2>
+          <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Oui, chaque client bénéficie d’un suivi adapté à ses besoins et à sa situation spécifique.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3">
+              Comment obtenir un devis ?
+            </button>
+          </h2>
+          <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Vous pouvez remplir notre formulaire de contact ou nous appeler directement pour recevoir une estimation gratuite.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q4">
+              Proposez-vous des forfaits mensuels ?
+            </button>
+          </h2>
+          <div id="q4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Oui, nous proposons des forfaits adaptés aux besoins récurrents des entreprises.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-5 text-center text-white" style="background:#0d1b2a;">
+    <div class="container">
+      <h2>Prêt à faire évoluer votre entreprise ?</h2>
+      <a href="contact.html" class="btn-cta mt-3">Contactez-nous dès aujourd’hui</a>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer class="text-center">
-    <p>&copy; 2025 CCGS - Tous droits réservés | <a href="faq.html">Consultez notre FAQ</a></p>
-    <div class="mt-2">
-      <a href="#"><i class="fab fa-facebook fa-lg me-3"></i></a>
-      <a href="#"><i class="fab fa-linkedin fa-lg me-3"></i></a>
-      <a href="#"><i class="fab fa-instagram fa-lg me-3"></i></a>
-      <a href="#"><i class="fab fa-whatsapp fa-lg"></i></a>
-    </div>
+    <p>&copy; 2025 CCGS - Tous droits réservés</p>
   </footer>
 
-  <!-- SCRIPT MENU -->
-  <script>
-    function openMenu() {
-      document.getElementById("sideMenu").style.width = "250px";
-    }
-    function closeMenu() {
-      document.getElementById("sideMenu").style.width = "0";
-    }
-  </script>
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
