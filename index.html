@@ -3,401 +3,472 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CCGS — Cabinet de Conseil & Gestion</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <title>CCGS – Cabinet Comptable & Fiscal</title>
+
+  <!-- Bootstrap & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"/>
 
   <style>
     :root{
-      --ccgs-dark:#0d1b2a;
-      --ccgs-primary:#f39c12;
-      --ccgs-muted:#e9ecef;
+      --bg-dark:#0d1b2a;
+      --brand:#f39c12;
+      --ink:#14213d;
     }
-    body{font-family: "Segoe UI", system-ui, -apple-system, sans-serif; scroll-behavior:smooth;}
-    a{ text-decoration:none }
+    html,body{scroll-behavior:smooth}
+    body{font-family:"Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;color:#222}
 
-    /* Side menu */
-    .menu-icon{position:fixed; top:18px; right:20px; font-size:1.9rem; color:#fff; z-index:2001; cursor:pointer}
+    /* ===== HEADER / HERO ===== */
+    header{
+      min-height:100vh;
+      color:#fff;
+      position:relative;
+      display:flex;
+      align-items:center;
+      text-align:center;
+      background:
+        linear-gradient(rgba(3,10,24,.7),rgba(3,10,24,.7)),
+        url("https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=1600&q=80")
+        center/cover no-repeat;
+    }
+    .menu-icon{
+      position:absolute;top:20px;right:20px;font-size:2rem;cursor:pointer;z-index:2000;color:#fff
+    }
+    header h1{font-weight:800;font-size:3rem;letter-spacing:.5px}
+    header p.lead{opacity:.95}
+    header .cta-wrap .btn{margin:.35rem}
+
+    /* ===== SIDE MENU ===== */
     .side-menu{
-      height:100%; width:0; position:fixed; top:0; right:0; background:var(--ccgs-dark);
-      overflow-x:hidden; transition:.4s; padding-top:70px; z-index:2002;
-      box-shadow:-6px 0 20px rgba(0,0,0,.35)
+      height:100%;width:0;position:fixed;top:0;right:0;background:var(--bg-dark);
+      overflow-x:hidden;transition:.35s;padding-top:60px;z-index:2100
     }
-    .side-menu a{color:#fff; display:block; padding:14px 26px; font-size:1.05rem}
-    .side-menu a:hover{ background:var(--ccgs-primary); color:#000 }
-    .side-menu .close-btn{ position:absolute; top:16px; right:24px; font-size:2rem; color:#fff }
+    .side-menu a{padding:12px 24px;display:block;color:#fff;font-size:1.05rem;text-decoration:none}
+    .side-menu a:hover{background:var(--brand);color:#111}
+    .side-menu .close-btn{position:absolute;top:12px;right:18px;font-size:2rem;color:#fff}
 
-    /* Hero */
-    header.hero{
-      min-height:100vh; position:relative; color:#fff; display:flex; align-items:center; text-align:center;
-      background:linear-gradient(rgba(13,27,42,.72), rgba(13,27,42,.72)),
-      url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1980&auto=format&fit=crop') center/cover no-repeat;
+    /* ===== GENERIC ===== */
+    .section-title{font-weight:800;color:var(--ink)}
+    .muted{color:#6c757d}
+
+    /* ===== SERVICES ===== */
+    .service-card{
+      border:0;border-radius:16px;padding:28px;background:#fff;
+      box-shadow:0 8px 24px rgba(0,0,0,.06);
+      transition:transform .25s ease, box-shadow .25s ease
     }
-    header .brand-logo{max-width:140px; filter:drop-shadow(0 6px 18px rgba(0,0,0,.35))}
-    .hero h1{font-weight:800; font-size:clamp(2rem, 3.5vw, 3.2rem)}
-    .hero p.lead{font-size:clamp(1rem, 1.5vw, 1.15rem)}
-    .hero .cta-group .btn{margin:.35rem}
+    .service-card:hover{transform:translateY(-6px);box-shadow:0 14px 34px rgba(0,0,0,.12)}
+    .service-card i{color:var(--brand)}
 
-    /* Section titles */
-    .section-title{font-weight:800; letter-spacing:.5px}
-    .section-sub{color:#6c757d}
-
-    /* Cards */
-    .card-raise{transition:.35s transform, .35s box-shadow}
-    .card-raise:hover{transform:translateY(-6px); box-shadow:0 12px 26px rgba(0,0,0,.12)}
-
-    /* Icon circle */
-    .icon-circle{width:60px;height:60px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:#fff;color:var(--ccgs-primary); box-shadow:0 6px 18px rgba(243,156,18,.35)}
-
-    /* Parallax bands */
-    .parallax{
-      background-attachment: fixed;
-      background-size: cover; background-position:center;
-      color:#fff; text-align:center; position:relative;
+    /* ===== PROCESS ===== */
+    .step{
+      border-radius:14px;background:#0d1b2a; color:#fff; padding:22px; height:100%;
+      box-shadow:0 8px 24px rgba(13,27,42,.25)
     }
-    .parallax::after{
-      content:""; position:absolute; inset:0; background:linear-gradient(to bottom, rgba(13,27,42,.55), rgba(13,27,42,.65));
+    .step .badge{background:var(--brand);color:#111;font-weight:700}
+
+    /* ===== STATS ===== */
+    .stats{background:#f8f9fb}
+    .stat-box{padding:26px 12px;text-align:center}
+    .stat-box h2{font-size:2.6rem;font-weight:800;color:var(--ink);margin:0}
+    .stat-box p{margin:6px 0 0}
+
+    /* ===== TEAM / BUREAU ===== */
+    .team img{border-radius:16px}
+    .pdg-card{
+      border-radius:16px;background:#fff;box-shadow:0 8px 24px rgba(0,0,0,.08);padding:24px;height:100%
     }
-    .parallax > .container{position:relative; z-index:2}
 
-    /* Gallery hover */
-    .img-zoom{overflow:hidden;border-radius:14px}
-    .img-zoom img{transition:transform .6s ease; width:100%}
-    .img-zoom:hover img{transform:scale(1.08)}
+    /* ===== TESTIMONIALS ===== */
+    .testimonial{font-style:italic;font-size:1.05rem}
+    .carousel-indicators [data-bs-target]{background:var(--brand)}
 
-    /* Counters */
-    .counter{font-weight:800; font-size:2rem}
-    .counter-wrap{border-radius:14px; background:#fff; box-shadow:0 8px 22px rgba(0,0,0,.08)}
+    /* ===== NEWS ===== */
+    .news-card{
+      border:0;border-radius:16px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.06);height:100%
+    }
+    .news-card img{width:100%;height:160px;object-fit:cover}
 
-    /* Reveal on scroll */
-    .reveal{opacity:0; transform:translateY(28px); transition:.8s ease}
-    .reveal.visible{opacity:1; transform:none}
+    /* ===== FAQ ===== */
+    .accordion-button:not(.collapsed){background:#fff;color:var(--ink)}
+    .accordion-button:focus{box-shadow:none}
+    .accordion-button::after{filter:grayscale(1)}
+    .faq-badge{background:var(--brand);color:#111}
 
-    /* Footer */
-    footer{background:var(--ccgs-dark); color:#fff}
-    footer a{color:#fff}
-    footer a:hover{color:var(--ccgs-primary)}
+    /* ===== CTA STRIP ===== */
+    .cta-strip{
+      background:linear-gradient(135deg,#0d1b2a, #1e2a44);
+      color:#fff;border-radius:16px;padding:28px 22px
+    }
 
-    /* Badges / chips */
-    .chip{display:inline-flex; align-items:center; gap:.35rem; padding:.4rem .75rem; border-radius:999px; background:#fff; color:#000; box-shadow:0 4px 12px rgba(0,0,0,.08)}
+    /* ===== FOOTER ===== */
+    footer{background:var(--bg-dark);color:#fff}
+    footer a{color:#dbe2ef;text-decoration:none}
+    footer a:hover{color:#fff;text-decoration:underline}
 
-    /* Accordion clean */
-    .accordion-button:not(.collapsed){background:#fff;color:#000}
-
-    /* Utility */
-    .bg-soft{background:var(--ccgs-muted)}
-    .text-ccgs{color:var(--ccgs-primary)}
-    .btn-ccgs{background:var(--ccgs-primary); color:#000; font-weight:700}
-    .btn-ccgs:hover{filter:brightness(.95); color:#000}
-    .divider{height:2px; background:linear-gradient(90deg, transparent, var(--ccgs-primary), transparent)}
+    /* Small tweaks */
+    @media (max-width:576px){
+      header h1{font-size:2.1rem}
+    }
   </style>
 </head>
 <body>
 
   <!-- SIDE MENU -->
-  <div class="menu-icon" onclick="openMenu()"><i class="fa-solid fa-bars"></i></div>
   <nav id="sideMenu" class="side-menu">
     <a href="javascript:void(0)" class="close-btn" onclick="closeMenu()">&times;</a>
-    <a href="#services"><i class="fa-solid fa-briefcase me-2"></i> Services</a>
-    <a href="#mission"><i class="fa-solid fa-bullseye me-2"></i> Mission & Valeurs</a>
-    <a href="#apropos"><i class="fa-solid fa-circle-info me-2"></i> À propos</a>
-    <a href="#equipe"><i class="fa-solid fa-user-tie me-2"></i> Équipe</a>
-    <a href="#chiffres"><i class="fa-solid fa-chart-line me-2"></i> Chiffres clés</a>
-    <a href="#temoignages"><i class="fa-solid fa-comments me-2"></i> Témoignages</a>
-    <a href="#partenaires"><i class="fa-solid fa-handshake me-2"></i> Partenaires</a>
-    <a href="#blog"><i class="fa-solid fa-newspaper me-2"></i> Conseils</a>
-    <a href="#faqteaser"><i class="fa-solid fa-question-circle me-2"></i> FAQ</a>
-    <a href="services.html"><i class="fa-solid fa-layer-group me-2"></i> Page Services</a>
-    <a href="apropos.html"><i class="fa-solid fa-building-columns me-2"></i> Page À propos</a>
-    <a href="faq.html"><i class="fa-solid fa-circle-question me-2"></i> Page FAQ</a>
-    <a href="contact.html"><i class="fa-solid fa-envelope me-2"></i> Contact</a>
+    <a href="index.html"><i class="fa-solid fa-house me-2"></i>Accueil</a>
+    <a href="#services"><i class="fa-solid fa-briefcase me-2"></i>Services</a>
+    <a href="apropos.html"><i class="fa-solid fa-user-tie me-2"></i>À propos</a>
+    <a href="faq.html"><i class="fa-solid fa-circle-question me-2"></i>FAQ</a>
+    <a href="contact.html"><i class="fa-solid fa-paper-plane me-2"></i>Contact</a>
   </nav>
 
   <!-- HERO -->
-  <header class="hero d-flex">
+  <header>
+    <div class="menu-icon" onclick="openMenu()"><i class="fa-solid fa-bars"></i></div>
     <div class="container">
-      <img src="ccgs.png" alt="CCGS" class="brand-logo mb-3">
-      <h1 class="mb-3">CCGS — Votre fiscalité, notre expertise</h1>
-      <p class="lead mb-4">Cabinet de Conseil & Comptabilité au Bénin — optimisation fiscale, tenue comptable, création d’entreprise, conformité & audit.</p>
-      <div class="cta-group">
-        <a href="#services" class="btn btn-ccgs btn-lg"><i class="fa-solid fa-eye me-2"></i>Découvrir nos services</a>
-        <a href="contact.html" class="btn btn-outline-light btn-lg"><i class="fa-solid fa-phone me-2"></i>Obtenir un rendez-vous</a>
-      </div>
-      <div class="mt-4">
-        <span class="chip"><i class="fa-solid fa-shield"></i> Confiance</span>
-        <span class="chip"><i class="fa-solid fa-bolt"></i> Réactivité</span>
-        <span class="chip"><i class="fa-solid fa-scale-balanced"></i> Conformité</span>
+      <img src="ccgs.png" alt="Logo CCGS" class="mb-3" style="max-width:150px;">
+      <h1 class="mb-3">Votre fiscalité, notre expertise</h1>
+      <p class="lead mb-4">CCGS accompagne entrepreneurs, PME et organisations dans la comptabilité, la fiscalité et la création d’entreprise au Bénin.</p>
+      <div class="cta-wrap">
+        <a href="#rdv" class="btn btn-warning btn-lg"><i class="fa-solid fa-calendar-check me-2"></i>Prendre rendez-vous</a>
+        <a href="#services" class="btn btn-outline-light btn-lg"><i class="fa-solid fa-briefcase me-2"></i>Nos services</a>
       </div>
     </div>
   </header>
 
-  <!-- SERVICES -->
-  <section id="services" class="py-5 bg-white">
+  <!-- PRESENTATION / MISSION / VALEURS -->
+  <section class="py-5">
     <div class="container">
-      <h2 class="section-title text-center mb-2">Nos Services</h2>
-      <p class="section-sub text-center mb-4">Un accompagnement complet pour chaque étape de la vie de votre entreprise.</p>
+      <div class="text-center mb-4">
+        <h2 class="section-title">Qui sommes-nous ?</h2>
+        <p class="muted">Cabinet CCGS – Conseil, Comptabilité & Gestion Stratégique</p>
+      </div>
+      <div class="row g-4 align-items-stretch">
+        <div class="col-md-4">
+          <div class="service-card h-100">
+            <i class="fa-solid fa-bullseye fa-2x mb-3"></i>
+            <h5>Notre mission</h5>
+            <p>Apporter clarté et performance financière à nos clients grâce à un accompagnement rigoureux, conforme et orienté résultats.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="service-card h-100">
+            <i class="fa-solid fa-shield-halved fa-2x mb-3"></i>
+            <h5>Nos valeurs</h5>
+            <p>Intégrité, proximité, excellence et confidentialité. Votre croissance est notre priorité quotidienne.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="service-card h-100">
+            <i class="fa-solid fa-rocket fa-2x mb-3"></i>
+            <h5>Notre promesse</h5>
+            <p>Des décisions éclairées, des obligations maîtrisées et des gains de temps concrets pour vous concentrer sur votre business.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES (6) -->
+  <section id="services" class="py-5 bg-light">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title">Nos domaines d’expertise</h2>
+        <p class="muted">Des services complets, pensés pour la réalité des PME</p>
+      </div>
       <div class="row g-4">
-        <!-- 6 services (peuvent être augmentés) -->
-        <div class="col-md-4 reveal">
-          <div class="card card-raise h-100 p-4">
-            <div class="icon-circle mb-3"><i class="fa-solid fa-building"></i></div>
+        <div class="col-md-4">
+          <div class="service-card h-100 text-center">
+            <i class="fa-solid fa-building fa-3x mb-3"></i>
             <h5>Création & Immatriculation</h5>
-            <p>Statuts, NIF, RCCM, régimes fiscaux, accompagnement administratif de A à Z.</p>
+            <p>Choix du statut, formalités, numéro IFU & RCCM. Démarrez sereinement.</p>
           </div>
         </div>
-        <div class="col-md-4 reveal">
-          <div class="card card-raise h-100 p-4">
-            <div class="icon-circle mb-3"><i class="fa-solid fa-calculator"></i></div>
-            <h5>Tenue & Révision Comptable</h5>
-            <p>Comptabilité fiable, situations périodiques, bilans, comptes de résultats.</p>
+        <div class="col-md-4">
+          <div class="service-card h-100 text-center">
+            <i class="fa-solid fa-calculator fa-3x mb-3"></i>
+            <h5>Comptabilité</h5>
+            <p>Tenue, révision, reporting et pilotage de trésorerie avec indicateurs clés.</p>
           </div>
         </div>
-        <div class="col-md-4 reveal">
-          <div class="card card-raise h-100 p-4">
-            <div class="icon-circle mb-3"><i class="fa-solid fa-file-invoice-dollar"></i></div>
-            <h5>Conseil Fiscal & Optimisation</h5>
-            <p>Déclarations, optimisation des charges, veille réglementaire et conformité.</p>
+        <div class="col-md-4">
+          <div class="service-card h-100 text-center">
+            <i class="fa-solid fa-file-invoice-dollar fa-3x mb-3"></i>
+            <h5>Conseil Fiscal</h5>
+            <p>Optimisation, conformité, gestion des contrôles et planification fiscale.</p>
           </div>
         </div>
-        <div class="col-md-4 reveal">
-          <div class="card card-raise h-100 p-4">
-            <div class="icon-circle mb-3"><i class="fa-solid fa-stamp"></i></div>
-            <h5>Contrôle & Audit</h5>
-            <p>Préparation aux contrôles, audit interne, cartographie des risques.</p>
-          </div>
-        </div>
-        <div class="col-md-4 reveal">
-          <div class="card card-raise h-100 p-4">
-            <div class="icon-circle mb-3"><i class="fa-solid fa-people-arrows"></i></div>
+
+        <div class="col-md-4">
+          <div class="service-card h-100 text-center">
+            <i class="fa-solid fa-scale-balanced fa-3x mb-3"></i>
             <h5>Paie & Social</h5>
-            <p>Bulletins, déclarations sociales, contrats, politiques RH & conformité.</p>
+            <p>Bulletins, déclarations sociales, conformité RH et obligations légales.</p>
           </div>
         </div>
-        <div class="col-md-4 reveal">
-          <div class="card card-raise h-100 p-4">
-            <div class="icon-circle mb-3"><i class="fa-solid fa-hand-holding-dollar"></i></div>
-            <h5>Gestion & Pilotage</h5>
-            <p>Tableaux de bord, budget, trésorerie, indicateurs de performance (KPI).</p>
+        <div class="col-md-4">
+          <div class="service-card h-100 text-center">
+            <i class="fa-solid fa-chart-line fa-3x mb-3"></i>
+            <h5>Audit & Contrôle</h5>
+            <p>Audits internes, procédures, maîtrise des risques et recommandations.</p>
           </div>
         </div>
-      </div>
-
-      <div class="row g-4 mt-2">
-        <!-- 3 extras -->
-        <div class="col-md-4 reveal">
-          <div class="card card-raise h-100 p-4">
-            <div class="icon-circle mb-3"><i class="fa-solid fa-scale-balanced"></i></div>
-            <h5>Appui Juridique</h5>
-            <p>Secrétariat juridique, assemblées, modifications statutaires, conventions.</p>
+        <div class="col-md-4">
+          <div class="service-card h-100 text-center">
+            <i class="fa-solid fa-handshake fa-3x mb-3"></i>
+            <h5>Accompagnement PME</h5>
+            <p>Business plans, budgets, tableaux de bord et recherche de financements.</p>
           </div>
         </div>
-        <div class="col-md-4 reveal">
-          <div class="card card-raise h-100 p-4">
-            <div class="icon-circle mb-3"><i class="fa-solid fa-globe"></i></div>
-            <h5>Commerce & Douane</h5>
-            <p>Procédures d’import/export, fiscalité internationale, prix de transfert (intro).</p>
-          </div>
-        </div>
-        <div class="col-md-4 reveal">
-          <div class="card card-raise h-100 p-4">
-            <div class="icon-circle mb-3"><i class="fa-solid fa-graduation-cap"></i></div>
-            <h5>Formations</h5>
-            <p>Fiscalité, comptabilité, outils de pilotage : sessions intra & inter-entreprises.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="text-center mt-4 reveal">
-        <a class="btn btn-outline-dark btn-lg" href="services.html"><i class="fa-solid fa-layer-group me-2"></i>Tous nos services</a>
       </div>
     </div>
   </section>
 
-  <!-- IMAGE BAND (parallax) -->
-  <section class="parallax py-5" style="background-image:url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1980&auto=format&fit=crop')">
-    <div class="container py-5">
-      <h2 class="section-title mb-3">Transparence • Rigueur • Performance</h2>
-      <p class="lead mb-0">Notre engagement : transformer vos obligations en leviers de croissance durable.</p>
-    </div>
-  </section>
-
-  <!-- MISSION & VALEURS + IMAGE -->
-  <section id="mission" class="py-5 bg-soft">
+  <!-- PROCESS -->
+  <section class="py-5">
     <div class="container">
-      <div class="row g-5 align-items-center">
-        <div class="col-lg-6 reveal">
-          <h2 class="section-title mb-3">Notre Mission</h2>
-          <p class="mb-3">Accompagner les entrepreneurs, PME et organisations dans la maîtrise de leurs obligations fiscales et comptables, tout en maximisant la création de valeur.</p>
-          <div class="row g-3">
-            <div class="col-sm-6">
-              <div class="card card-raise h-100 p-3">
-                <h6 class="mb-1"><i class="fa-solid fa-shield text-ccgs me-2"></i>Conformité</h6>
-                <p class="mb-0">Respect strict des normes, délais et contrôles.</p>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="card card-raise h-100 p-3">
-                <h6 class="mb-1"><i class="fa-solid fa-lightbulb text-ccgs me-2"></i>Conseil</h6>
-                <p class="mb-0">Optimiser vos choix pour un impact immédiat.</p>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="card card-raise h-100 p-3">
-                <h6 class="mb-1"><i class="fa-solid fa-handshake-angle text-ccgs me-2"></i>Proximité</h6>
-                <p class="mb-0">Un interlocuteur dédié qui connaît votre réalité.</p>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="card card-raise h-100 p-3">
-                <h6 class="mb-1"><i class="fa-solid fa-gauge-high text-ccgs me-2"></i>Performance</h6>
-                <p class="mb-0">Des outils de pilotage pour décider vite et juste.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6 reveal">
-          <div class="img-zoom">
-            <img loading="lazy" class="img-fluid rounded-4" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1980&auto=format&fit=crop" alt="Mission CCGS">
-          </div>
-        </div>
+      <div class="text-center mb-5">
+        <h2 class="section-title">Comment nous vous accompagnons</h2>
+        <p class="muted">Une méthode claire, transparente et efficace</p>
       </div>
-    </div>
-  </section>
-
-  <!-- A PROPOS MINI + TIMELINE -->
-  <section id="apropos" class="py-5">
-    <div class="container">
-      <h2 class="section-title text-center mb-2">Qui sommes-nous ?</h2>
-      <p class="section-sub text-center mb-5">CCGS est un cabinet béninois indépendant, tourné vers les résultats et la relation de confiance.</p>
       <div class="row g-4">
-        <div class="col-lg-6 reveal">
-          <div class="img-zoom mb-3">
-            <img loading="lazy" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1980&auto=format&fit=crop" class="img-fluid" alt="À propos CCGS">
-          </div>
-          <p>Depuis sa création, CCGS accompagne des dizaines d’entreprises dans leur croissance : mise en place de systèmes comptables, optimisation des régimes fiscaux, appui aux contrôles, transformation financière.</p>
-          <ul class="list-unstyled mt-3">
-            <li><i class="fa-solid fa-check text-ccgs me-2"></i> Méthodologie claire & documents livrables</li>
-            <li><i class="fa-solid fa-check text-ccgs me-2"></i> Outils modernes (tableaux de bord, automatisations)</li>
-            <li><i class="fa-solid fa-check text-ccgs me-2"></i> Confidentialité & éthique</li>
-          </ul>
-        </div>
-        <div class="col-lg-6 reveal">
-          <h5 class="mb-3">Notre parcours</h5>
-          <div class="card card-raise p-3 mb-3">
-            <strong>2018–2020</strong> — Lancement & premiers secteurs (commerce, services).
-          </div>
-          <div class="card card-raise p-3 mb-3">
-            <strong>2021–2022</strong> — Structuration paie & social, offre d’audit interne.
-          </div>
-          <div class="card card-raise p-3 mb-3">
-            <strong>2023–2024</strong> — Digitalisation des process, tableaux de bord temps réel.
-          </div>
-          <div class="card card-raise p-3">
-            <strong>2025</strong> — Renforcement de l’équipe & partenariats sectoriels.
-          </div>
-          <div class="mt-3"><a class="btn btn-outline-dark" href="apropos.html">En savoir plus</a></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CHIFFRES CLES (counters) -->
-  <section id="chiffres" class="py-5 bg-soft">
-    <div class="container">
-      <div class="row g-4 counter-wrap p-4">
-        <div class="col-6 col-md-3 text-center reveal">
-          <div class="counter" data-target="200">0</div>
-          <div>Clients accompagnés</div>
-        </div>
-        <div class="col-6 col-md-3 text-center reveal">
-          <div class="counter" data-target="1200">0</div>
-          <div>Déclarations traitées/an</div>
-        </div>
-        <div class="col-6 col-md-3 text-center reveal">
-          <div class="counter" data-target="15">0</div>
-          <div>Secteurs d’activité</div>
-        </div>
-        <div class="col-6 col-md-3 text-center reveal">
-          <div class="counter" data-target="9">0</div>
-          <div>Années d’expérience</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EQUIPE -->
-  <section id="equipe" class="py-5">
-    <div class="container">
-      <h2 class="section-title text-center mb-2">Nos Experts</h2>
-      <p class="section-sub text-center mb-5">Une équipe pluridisciplinaire dédiée à votre réussite.</p>
-      <div class="row g-4">
-        <!-- 6 profils -->
-        <div class="col-6 col-lg-4 reveal">
-          <div class="card card-raise h-100 p-3 text-center">
-            <img loading="lazy" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1200&auto=format&fit=crop" class="rounded-4 mb-3" alt="Expert 1">
-            <h6 class="mb-0">A. Dossa</h6><small class="text-muted">Associé – Fiscalité</small>
+        <div class="col-md-3">
+          <div class="step">
+            <span class="badge rounded-pill mb-2">1</span>
+            <h6>Diagnostic</h6>
+            <p class="mb-0">Analyse de votre situation et définition des objectifs.</p>
           </div>
         </div>
-        <div class="col-6 col-lg-4 reveal">
-          <div class="card card-raise h-100 p-3 text-center">
-            <img loading="lazy" src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=1200&auto=format&fit=crop" class="rounded-4 mb-3" alt="Expert 2">
-            <h6 class="mb-0">M. Faton</h6><small class="text-muted">Directeur Comptable</small>
+        <div class="col-md-3">
+          <div class="step">
+            <span class="badge rounded-pill mb-2">2</span>
+            <h6>Plan d’action</h6>
+            <p class="mb-0">Roadmap claire, livrables, responsabilités et délais.</p>
           </div>
         </div>
-        <div class="col-6 col-lg-4 reveal">
-          <div class="card card-raise h-100 p-3 text-center">
-            <img loading="lazy" src="https://images.unsplash.com/photo-1607556114526-058f5efdf49e?q=80&w=1200&auto=format&fit=crop" class="rounded-4 mb-3" alt="Expert 3">
-            <h6 class="mb-0">S. Houngbédji</h6><small class="text-muted">Audit & Contrôle</small>
+        <div class="col-md-3">
+          <div class="step">
+            <span class="badge rounded-pill mb-2">3</span>
+            <h6>Mise en œuvre</h6>
+            <p class="mb-0">Exécution, reporting et points réguliers de suivi.</p>
           </div>
         </div>
-        <div class="col-6 col-lg-4 reveal">
-          <div class="card card-raise h-100 p-3 text-center">
-            <img loading="lazy" src="https://images.unsplash.com/photo-1508182311256-e3f7d50c4b39?q=80&w=1200&auto=format&fit=crop" class="rounded-4 mb-3" alt="Expert 4">
-            <h6 class="mb-0">B. Tchibozo</h6><small class="text-muted">Paie & Social</small>
-          </div>
-        </div>
-        <div class="col-6 col-lg-4 reveal">
-          <div class="card card-raise h-100 p-3 text-center">
-            <img loading="lazy" src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=1200&auto=format&fit=crop" class="rounded-4 mb-3" alt="Expert 5">
-            <h6 class="mb-0">C. Adjovi</h6><small class="text-muted">Reporting & KPI</small>
-          </div>
-        </div>
-        <div class="col-6 col-lg-4 reveal">
-          <div class="card card-raise h-100 p-3 text-center">
-            <img loading="lazy" src="https://images.unsplash.com/photo-1541534401786-2077eed87a72?q=80&w=1200&auto=format&fit=crop" class="rounded-4 mb-3" alt="Expert 6">
-            <h6 class="mb-0">E. Aïna</h6><small class="text-muted">Juridique</small>
+        <div class="col-md-3">
+          <div class="step">
+            <span class="badge rounded-pill mb-2">4</span>
+            <h6>Amélioration</h6>
+            <p class="mb-0">Ajustements continus et optimisation des processus.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- TEMOIGNAGES -->
-  <section id="temoignages" class="py-5 bg-soft">
+  <!-- STATS -->
+  <section class="stats py-5">
     <div class="container">
-      <h2 class="section-title text-center mb-2">Ils nous font confiance</h2>
-      <p class="section-sub text-center mb-4">Des retours concrets de dirigeants et d’équipes accompagnés par CCGS.</p>
-      <div id="testimonialCarousel" class="carousel slide reveal" data-bs-ride="carousel">
+      <div class="row g-4 text-center">
+        <div class="col-6 col-md-3 stat-box">
+          <h2 data-count="250">0</h2>
+          <p>Clients accompagnés</p>
+        </div>
+        <div class="col-6 col-md-3 stat-box">
+          <h2 data-count="15">0</h2>
+          <p>Années d’expérience</p>
+        </div>
+        <div class="col-6 col-md-3 stat-box">
+          <h2 data-count="1200">0</h2>
+          <p>Déclarations traitées</p>
+        </div>
+        <div class="col-6 col-md-3 stat-box">
+          <h2 data-count="100">0</h2>
+          <p>% conformité</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM / BUREAU & PDG -->
+  <section class="team py-5 bg-light">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title">Notre bureau & direction</h2>
+        <p class="muted">Un environnement professionnel, une équipe dédiée à vos résultats</p>
+      </div>
+      <div class="row g-4 align-items-stretch">
+        <div class="col-md-6">
+          <img class="img-fluid w-100 h-100"
+               src="https://images.unsplash.com/photo-1568992688065-536aad8a12f6?auto=format&fit=crop&w=1200&q=80"
+               alt="Bureau CCGS">
+        </div>
+        <div class="col-md-6">
+          <div class="pdg-card">
+            <h4 class="mb-2">Mot du PDG</h4>
+            <p class="mb-3">« Chez CCGS, nous mettons la rigueur financière au service de votre stratégie.
+              Notre ambition : vous faire gagner du temps, sécuriser vos obligations et vous aider à grandir. »</p>
+            <div class="d-flex align-items-center">
+              <div>
+                <h6 class="mb-0"><strong>M. François G.</strong></h6>
+                <small class="muted">Fondateur & PDG, Expert-comptable</small>
+              </div>
+            </div>
+            <hr>
+            <ul class="mt-3 mb-0">
+              <li>Certification en audit & fiscalité</li>
+              <li>Spécialiste PME & croissance</li>
+              <li>Approche pédagogique et transparente</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS (no photos) -->
+  <section class="py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title">Témoignages</h2>
+        <p class="muted">Ce que disent nos clients</p>
+      </div>
+      <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active" aria-current="true"></button>
+          <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1"></button>
+          <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2"></button>
+        </div>
         <div class="carousel-inner text-center">
-          <div class="carousel-item active p-4">
-            <p class="lead">« L’équipe CCGS a sécurisé nos déclarations et clarifié nos options fiscales. »</p>
-            <small>— PME Agro, Cotonou</small>
+          <div class="carousel-item active">
+            <p class="testimonial">« CCGS a simplifié nos obligations fiscales et clarifié nos décisions financières. »</p>
+            <h6 class="mb-0">— Jean K., Entrepreneur</h6>
           </div>
-          <div class="carousel-item p-4">
-            <p class="lead">« Des tableaux de bord simples qui ont changé notre pilotage de trésorerie. »</p>
-            <small>— Startup Tech, Abomey-Calavi</small>
+          <div class="carousel-item">
+            <p class="testimonial">« Un partenaire fiable et disponible. Notre comptabilité n’a jamais été aussi nette. »</p>
+            <h6 class="mb-0">— Aline T., Gérante PME</h6>
           </div>
-          <div class="carousel-item p-4">
-            <p class="lead">« Réactivité impeccable pendant notre contrôle. On s’est sentis épaulés. »</p>
-            <small>— Commerce Détail, Porto-Novo</small>
-          </div>
-          <div class="carousel-item p-4">
-            <p class="lead">« Accompagnement concret, résultats mesurables. Je recommande. »</p>
-            <small>— Cabinet Médical, Parakou</small>
-          </div>
-          <div class="carousel-item p-4">
-            <p class="lead">« Mise en place d’une compta propre et d’un reporting clair en 6 semaines. »</p>
-            <small>— BTP, Bohicon</small>
+          <div class="carousel-item">
+            <p class="testimonial">« Des conseils concrets, des résultats mesurables. Je recommande sans hésiter. »</p>
+            <h6 class="mb-0">— Marc D., Startuper</h6>
           </div>
         </div>
-        <button class="carousel-control-pr
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWS / CONSEILS -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title">Actualités & Conseils fiscaux</h2>
+        <p class="muted">Restez informé des évolutions et des bonnes pratiques</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <article class="news-card">
+            <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=80" alt="">
+            <div class="p-3">
+              <h6 class="mb-2">Réformes fiscales 2025</h6>
+              <p class="mb-3">Les points clés à connaître pour anticiper vos déclarations et optimiser légalement.</p>
+              <a href="services.html" class="text-decoration-none"><i class="fa-solid fa-arrow-right me-1"></i>En savoir plus</a>
+            </div>
+          </article>
+        </div>
+        <div class="col-md-4">
+          <article class="news-card">
+            <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=1200&q=80" alt="">
+            <div class="p-3">
+              <h6 class="mb-2">5 erreurs comptables à éviter</h6>
+              <p class="mb-3">Conseils pratiques pour garder des comptes propres et gagner du temps.</p>
+              <a href="services.html" class="text-decoration-none"><i class="fa-solid fa-arrow-right me-1"></i>Nos conseils</a>
+            </div>
+          </article>
+        </div>
+        <div class="col-md-4">
+          <article class="news-card">
+            <img src="https://images.unsplash.com/photo-1523958203904-cdcb402031fd?auto=format&fit=crop&w=1200&q=80" alt="">
+            <div class="p-3">
+              <h6 class="mb-2">Créer sa société au Bénin</h6>
+              <p class="mb-3">Démarches, délais, coûts : un guide clair pour bien démarrer avec CCGS.</p>
+              <a href="apropos.html" class="text-decoration-none"><i class="fa-solid fa-arrow-right me-1"></i>Découvrir</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ (ACCORDION) -->
+  <section class="py-5" id="faq-home">
+    <div class="container">
+      <div class="d-flex align-items-center mb-3">
+        <span class="badge faq-badge me-2">FAQ</span>
+        <h2 class="section-title mb-0">Questions fréquentes</h2>
+      </div>
+      <div class="accordion" id="faqAccordion">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="q1">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#a1">Quel est le coût de la création d’entreprise ?</button>
+          </h2>
+          <div id="a1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">Il varie selon la forme juridique et les options. Contactez-nous pour un devis précis et rapide.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="q2">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a2">Gérez-vous la paie et les déclarations sociales ?</button>
+          </h2>
+          <div id="a2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">Oui, nous prenons en charge les bulletins, déclarations et obligations RH.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="q3">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a3">Proposez-vous un accompagnement pour les levées de fonds ?</button>
+          </h2>
+          <div id="a3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">Nous préparons business plans, budgets et KPIs pour crédibiliser vos demandes.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RENDEZ-VOUS -->
+  <section class="py-5" id="rdv">
+    <div class="container">
+      <div class="cta-strip mb-4 d-flex flex-column flex-md-row align-items-md-center justify-content-between">
+        <div class="mb-3 mb-md-0">
+          <h4 class="mb-1">Besoin d’un diagnostic gratuit ?</h4>
+          <p class="mb-0">Parlez-nous de votre projet, on vous répond sous 24h ouvrées.</p>
+        </div>
+        <a href="#rdv-form" class="btn btn-warning btn-lg"><i class="fa-solid fa-calendar-plus me-2"></i>Je prends rendez-vous</a>
+      </div>
+
+      <div class="row g-4" id="rdv-form">
+        <div class="col-lg-7">
+          <div class="service-card">
+            <h5 class="mb-3"><i class="fa-solid fa-envelope-open-text me-2"></i>Formulaire de contact</h5>
+            <form>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label">Nom complet</label>
+                  <input type="text" class="form-control" placeholder="Votre nom" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">E-mail</label>
+                  <input type="email" class="form-control" placeholder="vous@exemple.com" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Téléphone</label>
+                  <input type="tel" class="form-control" placeholder="+229 ..." required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Sujet</label>
+                  <select class="form-select" required>
+                    <option value="">Choisir…</option>
+                    <option>Création d’entreprise</option>
+                    <option>Comptabilité</option>
+                    <option>Conseil fiscal</option>
+                    <optio
