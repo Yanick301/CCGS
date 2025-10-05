@@ -78,6 +78,15 @@
     .social-icons a:hover {
       color: #f39c12;
     }
+
+    .side-menu{
+      height:100%;width:0;position:fixed;top:0;right:0;background:var(--bg-dark);
+      overflow-x:hidden;transition:.35s;padding-top:60px;z-index:2100
+    }
+    .side-menu a{padding:12px 24px;display:block;color:#fff;font-size:1.05rem;text-decoration:none}
+    .side-menu a:hover{background:var(--brand);color:#111}
+    .side-menu .close-btn{position:absolute;top:12px;right:18px;font-size:2rem;color:#fff}
+
   </style>
 </head>
 <body>
@@ -89,6 +98,21 @@
       <p>Trouvez rapidement les réponses à vos interrogations sur nos services fiscaux et comptables.</p>
     </div>
   </header>
+
+  <!-- SIDE MENU -->
+  <nav id="sideMenu" class="side-menu">
+    <a href="javascript:void(0)" class="close-btn" onclick="closeMenu()">&times;</a>
+    <a href="index.html"><i class="fa-solid fa-house me-2"></i>Accueil</a>
+    <a href="services.html"><i class="fa-solid fa-briefcase me-2"></i>Services</a>
+
+<a href="https://ccgsblog.ghost.io" target="_blank" 
+   style="display:inline-block; padding:10px 20px; background:#0D1B2A; color:white; border-radius:5px; font-weight:bold; text-decoration:none;">
+   Lire nos articles
+</a>
+    <a href="apropos.html"><i class="fa-solid fa-user-tie me-2"></i>À propos</a>
+    <a href="faq.html"><i class="fa-solid fa-circle-question me-2"></i>FAQ</a>
+    <a href="contact.html"><i class="fa-solid fa-paper-plane me-2"></i>Contact</a>
+  </nav>
 
   <!-- INTRO FAQ -->
   <section class="container py-5">
