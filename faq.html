@@ -12,6 +12,15 @@
       background-color: #f4f6f8;
       color: #333;
     }
+
+.side-menu{
+      height:100%;width:0;position:fixed;top:0;right:0;background:var(--bg-dark);
+      overflow-x:hidden;transition:.35s;padding-top:60px;z-index:2100
+    }
+    .side-menu a{padding:12px 24px;display:block;color:#fff;font-size:1.05rem;text-decoration:none}
+    .side-menu a:hover{background:var(--brand);color:#111}
+    .side-menu .close-btn{position:absolute;top:12px;right:18px;font-size:2rem;color:#fff}
+
     header {
       background: linear-gradient(rgba(13,27,42,0.7), rgba(13,27,42,0.7)),
                   url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40') center/cover no-repeat;
@@ -79,27 +88,12 @@
       color: #f39c12;
     }
 
-    .side-menu{
-      height:100%;width:0;position:fixed;top:0;right:0;background:var(--bg-dark);
-      overflow-x:hidden;transition:.35s;padding-top:60px;z-index:2100
-    }
-    .side-menu a{padding:12px 24px;display:block;color:#fff;font-size:1.05rem;text-decoration:none}
-    .side-menu a:hover{background:var(--brand);color:#111}
-    .side-menu .close-btn{position:absolute;top:12px;right:18px;font-size:2rem;color:#fff}
-
+    
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <div class="container">
-      <h1>Questions Fréquentes</h1>
-      <p>Trouvez rapidement les réponses à vos interrogations sur nos services fiscaux et comptables.</p>
-    </div>
-  </header>
-
-  <!-- SIDE MENU -->
+<!-- SIDE MENU -->
   <nav id="sideMenu" class="side-menu">
     <a href="javascript:void(0)" class="close-btn" onclick="closeMenu()">&times;</a>
     <a href="index.html"><i class="fa-solid fa-house me-2"></i>Accueil</a>
@@ -113,6 +107,16 @@
     <a href="faq.html"><i class="fa-solid fa-circle-question me-2"></i>FAQ</a>
     <a href="contact.html"><i class="fa-solid fa-paper-plane me-2"></i>Contact</a>
   </nav>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <h1>Questions Fréquentes</h1>
+      <p>Trouvez rapidement les réponses à vos interrogations sur nos services fiscaux et comptables.</p>
+    </div>
+  </header>
+
+  
 
   <!-- INTRO FAQ -->
   <section class="container py-5">
@@ -207,7 +211,7 @@
   <section class="container my-5">
     <div class="row faq-highlight align-items-center">
       <div class="col-md-6">
-        <img src="https://images.unsplash.com/photo-1642790106116-5b3aaee7b2b4" alt="Finance et comptabilité">
+        
       </div>
       <div class="col-md-6 content">
         <h3>Un accompagnement clair et transparent</h3>
